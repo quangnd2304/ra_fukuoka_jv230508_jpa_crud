@@ -23,6 +23,8 @@ tasks.withType(JavaCompile) {
 
 dependencies {
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.33'
     // https://mvnrepository.com/artifact/jstl/jstl
@@ -35,6 +37,10 @@ dependencies {
     implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.24.Final'
     // https://mvnrepository.com/artifact/org.springframework/spring-orm
     implementation group: 'org.springframework', name: 'spring-orm', version: '5.3.24'
+
+
+
+
 
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")

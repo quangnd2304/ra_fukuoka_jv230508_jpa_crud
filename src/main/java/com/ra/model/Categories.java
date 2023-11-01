@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -21,19 +22,19 @@ public class Categories {
     private Date created;
     @Column(name = "catalog_status")
     private boolean status;
-    @Column(name = "test")
-    private String test;
+    @OneToMany(mappedBy = "catalog",fetch = FetchType.EAGER)
+    private List<Product> listProduct;
 
     public Categories() {
     }
 
-    public Categories(int catalogId, String catalogName, float price, Date created, boolean status, String test) {
+    public Categories(int catalogId, String catalogName, float price, Date created, boolean status, List<Product> listProduct) {
         this.catalogId = catalogId;
         this.catalogName = catalogName;
         this.price = price;
         this.created = created;
         this.status = status;
-        this.test = test;
+        this.listProduct = listProduct;
     }
 
     public int getCatalogId() {
@@ -76,11 +77,11 @@ public class Categories {
         this.status = status;
     }
 
-    public String getTest() {
-        return test;
+    public List<Product> getListProduct() {
+        return listProduct;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setListProduct(List<Product> listProduct) {
+        this.listProduct = listProduct;
     }
 }
